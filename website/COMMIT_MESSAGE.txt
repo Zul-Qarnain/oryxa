@@ -1,0 +1,6 @@
+Restore TanStack Router with lazy loading and ErrorBoundary fallback
+
+- Re-enabled router in src/main.tsx using React.lazy and Suspense
+- Kept ErrorBoundary fallback rendering MainLayout + Home for safety
+- Built production bundle and verified dist/ contains updated assets
+- Prepared for Cloudflare Pages deployment (dist/ + _redirects)
