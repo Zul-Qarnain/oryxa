@@ -1,51 +1,62 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from './ui/Button'
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 h-20">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'h-20 bg-base-950/80 backdrop-blur-xl border-b border-white/5' : 'h-24 bg-transparent'}`}>
       <div className="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-full">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>smart_toy</span>
+        <div className="flex items-center gap-3 group cursor-pointer">
+          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-glow-primary group-hover:scale-110 transition-transform">
+            <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>hub</span>
           </div>
-          <span className="font-headline-md text-headline-md font-bold text-on-surface">Agentic</span>
+          <span className="text-2xl font-bold text-white tracking-tight">Agentic</span>
         </div>
         
-        <div className="hidden md:flex gap-8 items-center">
-          <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#features">Features</a>
-          <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#how-it-works">How It Works</a>
-          <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#pricing">Pricing</a>
-          <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Use Cases</a>
-          <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Docs</a>
-          <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Blog</a>
+        <div className="hidden md:flex gap-10 items-center">
+          {['Features', 'Intelligence', 'Pricing', 'Docs'].map((item) => (
+            <a 
+              key={item}
+              className="text-sm font-medium text-on-surface-variant hover:text-white transition-colors relative group" 
+              href={`#${item.toLowerCase().replace(' ', '-')}`}
+            >
+              {item}
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-300"></span>
+            </a>
+          ))}
         </div>
 
-        <div className="flex items-center gap-4">
-          <button className="hidden sm:block font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Log in</button>
-          <Button size="md" className="hidden sm:flex">Get Started Free</Button>
+        <div className="flex items-center gap-6">
+          <button className="hidden sm:block text-sm font-bold text-on-surface-variant hover:text-white transition-colors">Portal Login</button>
+          <Button size="md" className="hidden sm:flex px-8">Deploy Now</Button>
           
           {/* Mobile Menu Toggle */}
           <button 
             className="md:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <div className={`w-6 h-0.5 bg-primary transition-all ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <div className={`w-6 h-0.5 bg-primary transition-all ${isOpen ? 'opacity-0' : ''}`} />
-            <div className={`w-6 h-0.5 bg-primary transition-all ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <div className={`w-6 h-[1.5px] bg-white transition-all ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <div className={`w-6 h-[1.5px] bg-white transition-all ${isOpen ? 'opacity-0' : ''}`} />
+            <div className={`w-6 h-[1.5px] bg-white transition-all ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-surface border-b border-outline-variant/30 p-4 space-y-4 absolute w-full left-0 shadow-lg">
-          <a className="block font-label-md text-label-md text-on-surface-variant" href="#features" onClick={() => setIsOpen(false)}>Features</a>
-          <a className="block font-label-md text-label-md text-on-surface-variant" href="#how-it-works" onClick={() => setIsOpen(false)}>How It Works</a>
-          <a className="block font-label-md text-label-md text-on-surface-variant" href="#pricing" onClick={() => setIsOpen(false)}>Pricing</a>
-          <Button size="md" className="w-full">Get Started Free</Button>
+        <div className="md:hidden bg-base-950 border-b border-white/5 p-8 space-y-8 absolute w-full left-0 shadow-2xl animate-fade-in">
+          {['Features', 'Intelligence', 'Pricing', 'Docs'].map((item) => (
+             <a key={item} className="block text-xl font-bold text-white" href={`#${item.toLowerCase()}`} onClick={() => setIsOpen(false)}>{item}</a>
+          ))}
+          <Button size="lg" className="w-full">Deploy Now</Button>
         </div>
       )}
     </nav>
