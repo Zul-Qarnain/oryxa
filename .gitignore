@@ -31,3 +31,8 @@ ehthumbs.db
 .env
 .env.local
 .env.*.local
+
+# Documents
+*.txt
+*.md
+!README.md
