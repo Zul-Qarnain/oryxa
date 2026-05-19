@@ -11,26 +11,26 @@ export const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-1 space-y-8">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>hub</span>
+                <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>smart_toy</span>
               </div>
-              <span className="text-2xl font-bold text-white tracking-tight">Agentic</span>
+              <span className="text-2xl font-bold text-white tracking-tight">Oryxa</span>
             </div>
             <p className="text-on-surface-variant leading-relaxed">
-              Global neural network for autonomous customer operations. Scale your intelligence with the speed of thought.
+              AI-powered automation for modern online businesses. Turn your social media messages into automated sales.
             </p>
             <div className="flex gap-6">
-              {['share', 'public', 'alternate_email'].map((icon) => (
+              {['facebook', 'instagram', 'x'].map((icon) => (
                 <a key={icon} className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-white/10 transition-all border border-white/5" href="#">
-                  <span className="material-symbols-outlined text-xl">{icon}</span>
+                  <span className="material-symbols-outlined text-xl">public</span>
                 </a>
               ))}
             </div>
           </div>
           
           <div>
-            <h5 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Architecture</h5>
+            <h5 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Product</h5>
             <ul className="space-y-4">
-              {['Intelligence Nodes', 'Security Protocols', 'Neural Links', 'API Mesh'].map((item) => (
+              {['AI Auto Replies', 'WhatsApp Automation', 'Instagram DMs', 'Order Management', 'Integrations'].map((item) => (
                 <li key={item}><a className="text-on-surface-variant hover:text-white transition-colors" href="#">{item}</a></li>
               ))}
             </ul>
@@ -39,16 +39,16 @@ export const Footer: React.FC = () => {
           <div>
             <h5 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Resources</h5>
             <ul className="space-y-4">
-              {['Documentation', 'Developer Portal', 'Performance Logs', 'System Status'].map((item) => (
+              {['Documentation', 'Help Center', 'API Reference', 'Community', 'Status'].map((item) => (
                 <li key={item}><a className="text-on-surface-variant hover:text-white transition-colors" href="#">{item}</a></li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h5 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Nexus</h5>
+            <h5 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Company</h5>
             <ul className="space-y-4">
-              {['About the Network', 'Join the Evolution', 'Privacy Encrypt', 'Terms of Access'].map((item) => (
+              {['About Oryxa', 'Pricing', 'Privacy Policy', 'Terms of Service', 'Contact'].map((item) => (
                 <li key={item}><a className="text-on-surface-variant hover:text-white transition-colors" href="#">{item}</a></li>
               ))}
             </ul>
@@ -57,11 +57,11 @@ export const Footer: React.FC = () => {
         
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
            <p className="text-on-surface-variant text-[12px] font-medium uppercase tracking-[0.2em]">
-            © 2024 AGENTIC NEURAL NETWORK. ALL TRANSMISSIONS SECURED.
+            © 2024 ORYXA AI. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-8 text-[10px] font-bold text-white/20 uppercase tracking-widest">
-            <span>Uptime: 99.99%</span>
-            <span>Version: 2.0.4-Final</span>
+            <span>Platform Status: Operational</span>
+            <span>v1.0.0</span>
           </div>
         </div>
       </div>

@@ -4,49 +4,49 @@ import { Card } from './ui/Card'
 const features = [
   {
     id: 1,
-    icon: 'chat_bubble',
-    title: 'Autonomous Sales',
-    description: 'Our agents don’t just chat—they close. They qualify leads, recommend products, and handle the entire checkout flow.',
+    icon: 'forum',
+    title: 'AI Customer Conversations',
+    description: 'Our AI doesn’t just chat—it sells. It qualifies leads, recommends products, and guides customers to checkout on Messenger, Instagram, and WhatsApp.',
     size: 'col-span-2',
     color: 'text-primary'
   },
   {
     id: 2,
-    icon: 'quickreply',
-    title: 'Instant engagement',
-    description: '0.2s response time for every comment and message.',
+    icon: 'bolt',
+    title: 'Instant DM Replies',
+    description: 'Never keep a customer waiting. Reply to every message and comment in under 1 second, 24/7.',
     size: 'col-span-1',
     color: 'text-emerald-400'
   },
   {
     id: 3,
-    icon: 'auto_awesome',
-    title: 'Content Engine',
-    description: 'AI-generated posts that match your brand voice perfectly.',
+    icon: 'shopping_cart',
+    title: 'Smart Order Tracking',
+    description: 'Automate order status updates and shipping inquiries without lifting a finger.',
     size: 'col-span-1',
     color: 'text-orange-400'
   },
   {
     id: 4,
-    icon: 'memory',
-    title: 'Neural Inventory',
-    description: 'Real-time synchronization between your product catalog and every conversation node.',
+    icon: 'hub',
+    title: 'Multi-Platform Integration',
+    description: 'Sync your products and orders across Facebook Shop, Instagram, WhatsApp Business, and Shopify in real-time.',
     size: 'col-span-2',
     color: 'text-accent'
   },
   {
     id: 5,
-    icon: 'hub',
-    title: 'Ecosystem Sync',
-    description: 'Connect with Shopify, Meta, and your CRM in one click.',
+    icon: 'person_add',
+    title: 'Sales Follow-Up',
+    description: 'Automatically follow up with customers who showed interest but didn’t buy yet.',
     size: 'col-span-1',
     color: 'text-purple-400'
   },
   {
     id: 6,
     icon: 'support_agent',
-    title: '24/7 Intelligence',
-    description: 'Global support nodes that never sleep and always learn.',
+    title: '24/7 AI Support',
+    description: 'Handle customer complaints and FAQs automatically with an AI that knows your business inside out.',
     size: 'col-span-2',
     color: 'text-rose-400'
   }
@@ -59,10 +59,10 @@ export const Features: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="space-y-4">
             <h2 className="font-headline-xl text-4xl md:text-6xl font-bold text-white leading-tight">
-              Built for the <br /><span className="gradient-text">Next Generation</span>
+              Everything You Need to <br /><span className="gradient-text">Scale Your Sales</span>
             </h2>
             <p className="text-body-lg text-on-surface-variant max-w-xl">
-              A comprehensive toolkit of neural intelligence nodes designed to scale your operations exponentially.
+              A complete suite of AI-powered tools designed to handle every part of your social media business automatically.
             </p>
           </div>
           <div className="hidden md:block">
@@ -78,7 +78,7 @@ export const Features: React.FC = () => {
                   +2k
                 </div>
              </div>
-             <p className="text-[10px] uppercase tracking-widest text-on-surface-variant mt-3 text-right">Trusted by Innovators</p>
+             <p className="text-[10px] uppercase tracking-widest text-on-surface-variant mt-3 text-right">Trusted by Shop Owners</p>
           </div>
         </div>
 
@@ -101,7 +101,7 @@ export const Features: React.FC = () => {
               </div>
               
               <div className="flex items-center gap-2 text-sm font-bold text-white/40 group-hover:text-primary transition-colors cursor-pointer">
-                Initialize Module
+                Explore Feature
                 <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
               </div>
             </Card>

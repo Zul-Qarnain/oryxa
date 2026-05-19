@@ -16,17 +16,17 @@ export const Header: React.FC = () => {
       <div className="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-full">
         <div className="flex items-center gap-3 group cursor-pointer">
           <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-glow-primary group-hover:scale-110 transition-transform">
-            <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>hub</span>
+            <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>smart_toy</span>
           </div>
-          <span className="text-2xl font-bold text-white tracking-tight">Agentic</span>
+          <span className="text-2xl font-bold text-white tracking-tight">Oryxa</span>
         </div>
         
         <div className="hidden md:flex gap-10 items-center">
-          {['Features', 'Intelligence', 'Pricing', 'Docs'].map((item) => (
+          {['Features', 'How It Works', 'Pricing', 'Docs'].map((item) => (
             <a 
               key={item}
               className="text-sm font-medium text-on-surface-variant hover:text-white transition-colors relative group" 
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
+              href={`#${item.toLowerCase().replace(/ /g, '-') === 'how-it-works' ? 'intelligence' : item.toLowerCase()}`}
             >
               {item}
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-300"></span>
@@ -35,8 +35,8 @@ export const Header: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <button className="hidden sm:block text-sm font-bold text-on-surface-variant hover:text-white transition-colors">Portal Login</button>
-          <Button size="md" className="hidden sm:flex px-8">Deploy Now</Button>
+          <button className="hidden sm:block text-sm font-bold text-on-surface-variant hover:text-white transition-colors">Login</button>
+          <Button size="md" className="hidden sm:flex px-8">Get Started</Button>
           
           {/* Mobile Menu Toggle */}
           <button 
@@ -53,10 +53,10 @@ export const Header: React.FC = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-base-950 border-b border-white/5 p-8 space-y-8 absolute w-full left-0 shadow-2xl animate-fade-in">
-          {['Features', 'Intelligence', 'Pricing', 'Docs'].map((item) => (
-             <a key={item} className="block text-xl font-bold text-white" href={`#${item.toLowerCase()}`} onClick={() => setIsOpen(false)}>{item}</a>
+          {['Features', 'How It Works', 'Pricing', 'Docs'].map((item) => (
+             <a key={item} className="block text-xl font-bold text-white" href={`#${item.toLowerCase().replace(/ /g, '-') === 'how-it-works' ? 'intelligence' : item.toLowerCase()}`} onClick={() => setIsOpen(false)}>{item}</a>
           ))}
-          <Button size="lg" className="w-full">Deploy Now</Button>
+          <Button size="lg" className="w-full">Get Started</Button>
         </div>
       )}
     </nav>

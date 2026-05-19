@@ -3,27 +3,27 @@ import React from 'react'
 const steps = [
   {
     id: 1,
-    icon: 'lan',
-    title: 'Initialize Node',
-    description: 'Establish secure neural links with your Meta and Shopify ecosystems.',
+    icon: 'account_tree',
+    title: 'Connect Accounts',
+    description: 'Link your Facebook, Instagram, and WhatsApp Business accounts in one click.',
   },
   {
     id: 2,
-    icon: 'cognition',
-    title: 'Cognitive Sync',
-    description: 'Configure agent parameters, objectives, and brand personality protocols.',
+    icon: 'psychology',
+    title: 'Train Your AI',
+    description: 'Upload your product catalog and FAQ. Your AI learns your brand voice in seconds.',
   },
   {
     id: 3,
-    icon: 'auto_mode',
-    title: 'Activate Neural Net',
-    description: 'Deploy agents into live environments for autonomous operations.',
+    icon: 'smart_toy',
+    title: 'Go Live',
+    description: 'Deploy your AI agent to handle customer messages and comments automatically.',
   },
   {
     id: 4,
-    icon: 'monitoring',
-    title: 'Scale Intelligence',
-    description: 'Analyze real-time performance and evolve capabilities automatically.',
+    icon: 'insights',
+    title: 'Track Success',
+    description: 'Monitor automated sales, conversations, and customer satisfaction in real-time.',
   },
 ]
 
@@ -31,8 +31,8 @@ export const HowItWorks: React.FC = () => {
   return (
     <section id="intelligence" className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-32">
       <div className="text-center mb-24 space-y-4">
-        <h2 className="font-headline-xl text-4xl md:text-6xl font-bold text-white leading-tight">Deployment Protocol</h2>
-        <p className="text-on-surface-variant max-w-2xl mx-auto">Follow our zero-friction initialization sequence to activate your global agent network.</p>
+        <h2 className="font-headline-xl text-4xl md:text-6xl font-bold text-white leading-tight">Simple Automation in 4 Steps</h2>
+        <p className="text-on-surface-variant max-w-2xl mx-auto">Get your AI sales agent up and running in minutes. No technical skills or coding required.</p>
       </div>
       
       <div className="relative grid grid-cols-1 md:grid-cols-4 gap-12">

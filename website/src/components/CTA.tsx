@@ -10,27 +10,27 @@ export const CTA: React.FC = () => {
         
         <div className="relative z-10 px-8 py-20 md:p-24 text-center max-w-4xl mx-auto space-y-12">
           <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-            Ready to Initialize Your <br /> <span className="gradient-text">Neural Network?</span>
+            Stop Losing Customers. <br /> <span className="gradient-text">Start Automating.</span>
           </h2>
           
           <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-            Join the elite circle of businesses leveraging autonomous intelligence. Deployment takes less than 10 minutes.
+            Your customers are messaging right now. Let your AI agent handle them instantly while you focus on growing your brand.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <Button size="lg" className="px-12 py-5 text-lg">Deploy First Agent</Button>
-            <Button variant="outline" size="lg" className="px-12 py-5 text-lg">Consult an Engineer</Button>
+            <Button size="lg" className="px-12 py-5 text-lg">Start Free Trial</Button>
+            <Button variant="outline" size="lg" className="px-12 py-5 text-lg">Book a Demo</Button>
           </div>
           
           <div className="flex flex-wrap justify-center gap-10 opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700">
              <div className="flex items-center gap-2 text-sm font-bold text-white uppercase tracking-widest">
-               <span className="material-symbols-outlined text-primary">security</span> AES-256 Encrypted
+               <span className="material-symbols-outlined text-primary">credit_card_off</span> No Credit Card Required
              </div>
              <div className="flex items-center gap-2 text-sm font-bold text-white uppercase tracking-widest">
-               <span className="material-symbols-outlined text-primary">cloud_done</span> Multi-Cloud
+               <span className="material-symbols-outlined text-primary">bolt</span> Instant Setup
              </div>
              <div className="flex items-center gap-2 text-sm font-bold text-white uppercase tracking-widest">
-               <span className="material-symbols-outlined text-primary">lan</span> Zero Latency
+               <span className="material-symbols-outlined text-primary">support_agent</span> 24/7 AI Sales
              </div>
           </div>
         </div>

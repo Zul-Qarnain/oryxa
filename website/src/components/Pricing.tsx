@@ -4,45 +4,48 @@ import { Button } from './ui/Button'
 
 const plans = [
   {
-    name: 'Starter Node',
+    name: 'Starter',
     price: '$0',
-    description: 'Perfect for small operations initializing their AI presence.',
+    description: 'Perfect for small shops starting with basic automation.',
     features: [
-      '1 Neural Agent',
-      '500 Logic Cycles/mo',
-      'Standard Post Reply',
-      'Email Support Link',
+      '500 Conversations/mo',
+      'Messenger & Instagram',
+      'Basic AI Training',
+      'Order Status FAQ',
+      'Email Support',
     ],
-    cta: 'Initialize Node',
+    cta: 'Start Free',
     variant: 'glass'
   },
   {
-    name: 'Pro Network',
+    name: 'Pro',
     price: '$49',
-    description: 'Advanced features for scaling high-frequency automation.',
+    description: 'Advanced tools for growing businesses with high volume.',
     features: [
-      '3 Neural Agents',
-      '5,000 Logic Cycles/mo',
-      'Smart Catalog Sync',
-      'Neural Post Creation',
-      'Priority Priority Sync',
+      '5,000 Conversations/mo',
+      'WhatsApp Business API',
+      'Smart Order Sync',
+      'Custom AI Personality',
+      'Sales Analytics',
+      'Priority Support',
     ],
-    cta: 'Start Evolution',
+    cta: 'Start Pro Trial',
     variant: 'primary',
     popular: true
   },
   {
-    name: 'Enterprise Mesh',
+    name: 'Enterprise',
     price: 'Custom',
-    description: 'Global-scale infrastructure for massive distributed intelligence.',
+    description: 'Custom AI workflows for large-scale social commerce.',
     features: [
-      'Unlimited Agents',
-      'Unlimited Cycles',
-      'Full Neural API Access',
-      'Dedicated Architect',
-      'SLA Guaranteed Latency',
+      'Unlimited Conversations',
+      'Custom CRM Integration',
+      'Multi-Agent Workflow',
+      'Dedicated Manager',
+      'SLA & 99.9% Uptime',
+      'Advanced AI Training',
     ],
-    cta: 'Contact Architect',
+    cta: 'Contact Sales',
     variant: 'glass'
   }
 ]
@@ -55,8 +58,8 @@ export const Pricing: React.FC = () => {
 
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="text-center mb-24 space-y-4">
-          <h2 className="font-headline-xl text-4xl md:text-6xl font-bold text-white leading-tight">Investment Tiers</h2>
-          <p className="text-on-surface-variant max-w-2xl mx-auto">Choose the processing power that matches your operational scale.</p>
+          <h2 className="font-headline-xl text-4xl md:text-6xl font-bold text-white leading-tight">Simple, Transparent Pricing</h2>
+          <p className="text-on-surface-variant max-w-2xl mx-auto">Choose the plan that fits your business scale. Scale up as you grow with no hidden fees.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -68,7 +71,7 @@ export const Pricing: React.FC = () => {
             >
               {plan.popular && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-6 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-glow-primary">
-                  Recommended Node
+                  Most Popular
                 </div>
               )}
               
@@ -76,7 +79,7 @@ export const Pricing: React.FC = () => {
                 <h3 className="text-xl font-bold text-white/50 group-hover:text-white transition-colors mb-6 uppercase tracking-widest">{plan.name}</h3>
                 <div className="flex items-baseline gap-2 mb-4">
                   <span className="text-5xl font-bold text-white">{plan.price}</span>
-                  {plan.price !== 'Custom' && <span className="text-on-surface-variant font-mono text-sm">/cycle</span>}
+                  {plan.price !== 'Custom' && <span className="text-on-surface-variant font-mono text-sm">/mo</span>}
                 </div>
                 <p className="text-sm text-on-surface-variant leading-relaxed">{plan.description}</p>
               </div>
@@ -84,7 +87,7 @@ export const Pricing: React.FC = () => {
               <ul className="space-y-5 mb-12 flex-grow">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-center gap-4 text-sm text-on-surface-variant group-hover:text-white/80 transition-colors">
-                    <span className="material-symbols-outlined text-primary text-lg">memory</span>
+                    <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
                     {feature}
                   </li>
                 ))}
