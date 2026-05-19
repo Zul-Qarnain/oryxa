@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build && cp dist/index.html dist/404.html",
     "preview": "npm run build && wrangler dev",
-    "deploy": "npm run build && wrangler deploy --legacy-peer-deps"
+    "deploy": "npm run build && wrangler deploy"
   },
   "keywords": [],
   "author": "",
