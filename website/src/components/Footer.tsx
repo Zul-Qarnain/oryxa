@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../assets/brand/logo.png'
 
 export const Footer: React.FC = () => {
   return (
@@ -10,8 +11,8 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
           <div className="col-span-1 md:col-span-1 space-y-8">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>smart_toy</span>
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center overflow-hidden p-2">
+                <img src={logo} alt="Oryxa Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-2xl font-bold text-white tracking-tight">Oryxa</span>
             </div>
