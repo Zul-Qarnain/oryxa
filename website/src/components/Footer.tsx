@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
           <div className="col-span-1 md:col-span-1 space-y-8">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center overflow-hidden p-2">
+              <div className="w-12 h-12 flex items-center justify-center overflow-hidden">
                 <img src={logo} alt="Oryxa Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-2xl font-bold text-white tracking-tight">Oryxa</span>

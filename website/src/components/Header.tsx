@@ -16,7 +16,7 @@ export const Header: React.FC = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'h-20 bg-base-950/80 backdrop-blur-xl border-b border-white/5' : 'h-24 bg-transparent'}`}>
       <div className="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-full">
         <div className="flex items-center gap-3 group cursor-pointer">
-          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-glow-primary group-hover:scale-110 transition-transform overflow-hidden p-2">
+          <div className="w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
             <img src={logo} alt="Oryxa Logo" className="w-full h-full object-contain" />
           </div>
           <span className="text-2xl font-bold text-white tracking-tight">Oryxa</span>
