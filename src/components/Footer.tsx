@@ -3,7 +3,7 @@ import logo from '../assets/brand/logo.png'
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-base-950 border-t border-white/5 pt-32 pb-12 overflow-hidden relative">
+    <footer className="bg-base-950 border-t border-white/5 pt-20 md:pt-32 pb-12 overflow-hidden relative">
       {/* Decorative Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-96 bg-primary/10 rounded-full blur-[120px] -z-10"></div>
       

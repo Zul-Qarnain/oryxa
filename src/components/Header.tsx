@@ -53,11 +53,13 @@ export const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-base-950 border-b border-white/5 p-8 space-y-8 absolute w-full left-0 shadow-2xl animate-fade-in">
+        <div className="md:hidden bg-base-950 border-b border-white/5 p-8 space-y-8 absolute top-full left-0 w-full shadow-2xl animate-fade-in max-h-[calc(100vh-100%)] overflow-y-auto backdrop-blur-xl">
           {['Features', 'How It Works', 'Pricing', 'Docs'].map((item) => (
-             <a key={item} className="block text-xl font-bold text-white" href={`#${item.toLowerCase().replace(/ /g, '-') === 'how-it-works' ? 'intelligence' : item.toLowerCase()}`} onClick={() => setIsOpen(false)}>{item}</a>
+             <a key={item} className="block text-xl font-bold text-white hover:text-primary transition-colors" href={`#${item.toLowerCase().replace(/ /g, '-') === 'how-it-works' ? 'intelligence' : item.toLowerCase()}`} onClick={() => setIsOpen(false)}>{item}</a>
           ))}
-          <Button size="lg" className="w-full">Get Started</Button>
+          <div className="pt-4 border-t border-white/5">
+            <Button size="lg" className="w-full">Get Started</Button>
+          </div>
         </div>
       )}
     </nav>

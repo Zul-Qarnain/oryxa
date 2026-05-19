@@ -52,22 +52,22 @@ const plans = [
 
 export const Pricing: React.FC = () => {
   return (
-    <section id="pricing" className="py-32 relative overflow-hidden">
+    <section id="pricing" className="py-24 md:py-32 relative overflow-hidden">
        {/* Background glow */}
        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10"></div>
 
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="text-center mb-24 space-y-4">
-          <h2 className="font-headline-xl text-4xl md:text-6xl font-bold text-white leading-tight">Simple, Transparent Pricing</h2>
-          <p className="text-on-surface-variant max-w-2xl mx-auto">Choose the plan that fits your business scale. Scale up as you grow with no hidden fees.</p>
+        <div className="text-center mb-16 md:mb-24 space-y-4">
+          <h2 className="font-headline-xl text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-tight">Simple, Transparent Pricing</h2>
+          <p className="text-on-surface-variant max-w-2xl mx-auto text-base sm:text-lg">Choose the plan that fits your business scale. Scale up as you grow with no hidden fees.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan) => (
             <Card 
               key={plan.name} 
-              padding="p-10"
-              className={`flex flex-col relative group transition-all duration-500 ${plan.popular ? 'border-primary/50 bg-primary/[0.03] scale-105 z-10 shadow-glow-primary' : ''}`}
+              padding="p-6 sm:p-8 md:p-10"
+              className={`flex flex-col relative group transition-all duration-500 ${plan.popular ? 'border-primary/50 bg-primary/[0.03] md:scale-105 z-10 shadow-glow-primary' : ''}`}
             >
               {plan.popular && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-6 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-glow-primary">

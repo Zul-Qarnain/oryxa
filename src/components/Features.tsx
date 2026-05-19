@@ -56,17 +56,17 @@ export const Features: React.FC = () => {
   return (
     <section id="features" className="py-24 md:py-32 relative">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 text-center md:text-left">
           <div className="space-y-4">
-            <h2 className="font-headline-xl text-4xl md:text-6xl font-bold text-white leading-tight">
+            <h2 className="font-headline-xl text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-tight">
               Everything You Need to <br /><span className="gradient-text">Scale Your Sales</span>
             </h2>
-            <p className="text-body-lg text-on-surface-variant max-w-xl">
+            <p className="text-body-lg text-on-surface-variant max-w-xl mx-auto md:mx-0 text-base sm:text-lg">
               A complete suite of AI-powered tools designed to handle every part of your social media business automatically.
             </p>
           </div>
           <div className="hidden md:block">
-             <div className="flex -space-x-4">
+             <div className="flex -space-x-4 justify-center md:justify-end">
                 {[1,2,3,4].map(i => (
                   <div key={i} className="w-12 h-12 rounded-full border-2 border-base-950 bg-base-900 flex items-center justify-center overflow-hidden">
                     <div className={`w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center`}>
@@ -78,7 +78,7 @@ export const Features: React.FC = () => {
                   +2k
                 </div>
              </div>
-             <p className="text-[10px] uppercase tracking-widest text-on-surface-variant mt-3 text-right">Trusted by Shop Owners</p>
+             <p className="text-[10px] uppercase tracking-widest text-on-surface-variant mt-3 text-center md:text-right">Trusted by Shop Owners</p>
           </div>
         </div>
 
@@ -86,8 +86,8 @@ export const Features: React.FC = () => {
           {features.map((feature) => (
             <Card 
               key={feature.id} 
-              padding="p-10" 
-              className={`${feature.size} flex flex-col justify-between group overflow-hidden relative`}
+              padding="p-6 sm:p-8 md:p-10" 
+              className={`${feature.size === 'col-span-2' ? 'md:col-span-2' : ''} flex flex-col justify-between group overflow-hidden relative`}
             >
               {/* Decorative light hit */}
               <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-[60px] group-hover:bg-primary/20 transition-all duration-500"></div>

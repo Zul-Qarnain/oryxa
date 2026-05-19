@@ -29,10 +29,10 @@ const steps = [
 
 export const HowItWorks: React.FC = () => {
   return (
-    <section id="intelligence" className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-32">
-      <div className="text-center mb-24 space-y-4">
-        <h2 className="font-headline-xl text-4xl md:text-6xl font-bold text-white leading-tight">Simple Automation in 4 Steps</h2>
-        <p className="text-on-surface-variant max-w-2xl mx-auto">Get your AI sales agent up and running in minutes. No technical skills or coding required.</p>
+    <section id="intelligence" className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24 md:py-32">
+      <div className="text-center mb-16 md:mb-24 space-y-4">
+        <h2 className="font-headline-xl text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-tight">Simple Automation in 4 Steps</h2>
+        <p className="text-on-surface-variant max-w-2xl mx-auto text-base sm:text-lg">Get your AI sales agent up and running in minutes. No technical skills or coding required.</p>
       </div>
       
       <div className="relative grid grid-cols-1 md:grid-cols-4 gap-12">
