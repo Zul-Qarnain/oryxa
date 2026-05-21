@@ -2,6 +2,8 @@ import React from 'react'
 import { RouterProvider, createRouter, createRootRoute, createRoute, createBrowserHistory } from '@tanstack/react-router'
 import { MainLayout } from '../layouts/MainLayout'
 import { Home } from './index'
+import { TermsConditions } from './TermsConditions'
+import { PrivacyPolicy } from './PrivacyPolicy'
 
 // Create route tree using TanStack Router helpers
 const RootRoute = createRootRoute({
@@ -14,7 +16,19 @@ const IndexRoute = createRoute({
   component: Home,
 })
 
-RootRoute.addChildren([IndexRoute])
+const TermsRoute = createRoute({
+  getParentRoute: () => RootRoute,
+  path: '/terms',
+  component: TermsConditions,
+})
+
+const PrivacyRoute = createRoute({
+  getParentRoute: () => RootRoute,
+  path: '/privacy',
+  component: PrivacyPolicy,
+})
+
+RootRoute.addChildren([IndexRoute, TermsRoute, PrivacyRoute])
 
 const router = createRouter({
   routeTree: RootRoute,
