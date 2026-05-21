@@ -74,7 +74,7 @@ export function NewAccount() {
               Thank you for joining our waitlist.
             </p>
             <p className="text-on-surface-variant">
-              You are now in the queue. We will email you as the waiting list progresses.
+              You are now in the queue. We will email you as the waitlist progresses.
             </p>
             <p className="text-on-surface-variant">
               We are very thankful for your presence.
