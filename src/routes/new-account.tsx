@@ -71,7 +71,7 @@ export function NewAccount() {
           <div className="space-y-5 text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-white">New Account</h1>
             <p className="text-lg text-white">
-              Thank you for creating your account.
+              Thank you for joining our waitlist.
             </p>
             <p className="text-on-surface-variant">
               You are now in the queue. We will email you as the waiting list progresses.
