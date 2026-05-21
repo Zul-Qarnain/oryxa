@@ -16,7 +16,8 @@ const plans = [
       'Email Support',
     ],
     cta: 'Start Free',
-    variant: 'glass'
+    variant: 'glass',
+    signupCta: false,
   },
   {
     name: 'Pro',
@@ -32,7 +33,8 @@ const plans = [
     ],
     cta: 'Start Pro Trial',
     variant: 'primary',
-    popular: true
+    popular: true,
+    signupCta: true,
   },
   {
     name: 'Enterprise',
@@ -47,7 +49,8 @@ const plans = [
       'Advanced AI Training',
     ],
     cta: 'Contact Sales',
-    variant: 'glass'
+    variant: 'glass',
+    signupCta: false,
   }
 ]
 
@@ -100,7 +103,7 @@ export const Pricing: React.FC = () => {
                 variant={plan.variant as any} 
                 size="lg"
                 className="w-full py-4 text-sm font-bold uppercase tracking-widest"
-                onClick={plan.cta === 'Start Pro Trial' ? () => navigate({ to: '/new-account' }) : undefined}
+                onClick={plan.signupCta ? () => navigate({ to: '/new-account' }) : undefined}
               >
                 {plan.cta}
               </Button>
