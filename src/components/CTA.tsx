@@ -1,7 +1,10 @@
 import React from 'react'
 import { Button } from './ui/Button'
+import { useNavigate } from '@tanstack/react-router'
 
 export const CTA: React.FC = () => {
+  const navigate = useNavigate()
+
   return (
     <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24 md:py-32">
       <div className="relative rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-base-900 border border-white/5 group shadow-2xl">
@@ -18,8 +21,8 @@ export const CTA: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-4 md:pt-8">
-            <Button size="lg" className="w-full sm:w-auto px-12 py-5 text-lg">Start Free Trial</Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto px-12 py-5 text-lg">Book a Demo</Button>
+            <Button size="lg" className="w-full sm:w-auto px-12 py-5 text-lg" onClick={() => navigate({ to: '/new-account' })}>Start Free Trial</Button>
+            <Button variant="outline" size="lg" className="w-full sm:w-auto px-12 py-5 text-lg" onClick={() => navigate({ to: '/new-account' })}>Book a Demo</Button>
           </div>
           
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 sm:gap-10 opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700">

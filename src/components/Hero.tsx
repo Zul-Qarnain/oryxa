@@ -1,8 +1,11 @@
 import React from 'react'
 import { Button } from './ui/Button'
 import { Badge } from './ui/Badge'
+import { useNavigate } from '@tanstack/react-router'
 
 export const Hero: React.FC = () => {
+  const navigate = useNavigate()
+
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-48 md:pb-32">
       {/* Background Atmosphere */}
@@ -28,11 +31,11 @@ export const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button size="lg" className="w-full sm:w-auto px-10 py-5 text-lg group">
+            <Button size="lg" className="w-full sm:w-auto px-10 py-5 text-lg group" onClick={() => navigate({ to: '/new-account' })}>
               Start Free Trial
               <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </Button>
-            <Button variant="glass" size="lg" className="w-full sm:w-auto px-10 py-5 text-lg">
+            <Button variant="glass" size="lg" className="w-full sm:w-auto px-10 py-5 text-lg" onClick={() => navigate({ to: '/new-account' })}>
               Watch Demo
             </Button>
           </div>
