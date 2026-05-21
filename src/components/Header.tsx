@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from './ui/Button'
 import logo from '../assets/brand/logo.png'
+import { useNavigate } from '@tanstack/react-router'
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -37,7 +39,7 @@ export const Header: React.FC = () => {
 
         <div className="flex items-center gap-6">
           <button className="hidden sm:block text-sm font-bold text-on-surface-variant hover:text-white transition-colors">Login</button>
-          <Button size="md" className="hidden sm:flex px-8">Get Started</Button>
+          <Button size="md" className="hidden sm:flex px-8" onClick={() => navigate({ to: '/new-account' })}>Get Started</Button>
           
           {/* Mobile Menu Toggle */}
           <button 
@@ -58,7 +60,7 @@ export const Header: React.FC = () => {
              <a key={item} className="block text-xl font-bold text-white hover:text-primary transition-colors" href={`#${item.toLowerCase().replace(/ /g, '-') === 'how-it-works' ? 'intelligence' : item.toLowerCase()}`} onClick={() => setIsOpen(false)}>{item}</a>
           ))}
           <div className="pt-4 border-t border-white/5">
-            <Button size="lg" className="w-full">Get Started</Button>
+            <Button size="lg" className="w-full" onClick={() => { setIsOpen(false); navigate({ to: '/new-account' }) }}>Get Started</Button>
           </div>
         </div>
       )}
