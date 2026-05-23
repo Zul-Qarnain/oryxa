@@ -2,6 +2,7 @@ import React from 'react'
 import { RouterProvider, createRouter, createRootRoute, createRoute, createBrowserHistory } from '@tanstack/react-router'
 import { MainLayout } from '../layouts/MainLayout'
 import { Home } from './index'
+import { NewAccount } from './new-account'
 import { TermsConditions } from './TermsConditions'
 import { PrivacyPolicy } from './PrivacyPolicy'
 
@@ -16,6 +17,13 @@ const IndexRoute = createRoute({
   component: Home,
 })
 
+const NewAccountRoute = createRoute({
+  getParentRoute: () => RootRoute,
+  path: '/new-account',
+  component: NewAccount,
+})
+
+RootRoute.addChildren([IndexRoute, NewAccountRoute])
 const TermsRoute = createRoute({
   getParentRoute: () => RootRoute,
   path: '/terms',

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from './ui/Card'
 import { Button } from './ui/Button'
+import { useNavigate } from '@tanstack/react-router'
 
 const plans = [
   {
@@ -15,7 +16,8 @@ const plans = [
       'Email Support',
     ],
     cta: 'Start Free',
-    variant: 'glass'
+    variant: 'glass',
+    signupCta: false,
   },
   {
     name: 'Pro',
@@ -31,7 +33,8 @@ const plans = [
     ],
     cta: 'Start Pro Trial',
     variant: 'primary',
-    popular: true
+    popular: true,
+    signupCta: true,
   },
   {
     name: 'Enterprise',
@@ -46,11 +49,14 @@ const plans = [
       'Advanced AI Training',
     ],
     cta: 'Contact Sales',
-    variant: 'glass'
+    variant: 'glass',
+    signupCta: false,
   }
 ]
 
 export const Pricing: React.FC = () => {
+  const navigate = useNavigate()
+
   return (
     <section id="pricing" className="py-24 md:py-32 relative overflow-hidden">
        {/* Background glow */}
@@ -97,6 +103,7 @@ export const Pricing: React.FC = () => {
                 variant={plan.variant as any} 
                 size="lg"
                 className="w-full py-4 text-sm font-bold uppercase tracking-widest"
+                onClick={plan.signupCta ? () => navigate({ to: '/new-account' }) : undefined}
               >
                 {plan.cta}
               </Button>
