@@ -3,6 +3,8 @@ import { RouterProvider, createRouter, createRootRoute, createRoute, createBrows
 import { MainLayout } from '../layouts/MainLayout'
 import { Home } from './index'
 import { NewAccount } from './new-account'
+import { TermsConditions } from './TermsConditions'
+import { PrivacyPolicy } from './PrivacyPolicy'
 
 // Create route tree using TanStack Router helpers
 const RootRoute = createRootRoute({
@@ -22,6 +24,19 @@ const NewAccountRoute = createRoute({
 })
 
 RootRoute.addChildren([IndexRoute, NewAccountRoute])
+const TermsRoute = createRoute({
+  getParentRoute: () => RootRoute,
+  path: '/terms',
+  component: TermsConditions,
+})
+
+const PrivacyRoute = createRoute({
+  getParentRoute: () => RootRoute,
+  path: '/privacy',
+  component: PrivacyPolicy,
+})
+
+RootRoute.addChildren([IndexRoute, TermsRoute, PrivacyRoute])
 
 const router = createRouter({
   routeTree: RootRoute,
