@@ -1,8 +1,38 @@
 import React, { useState } from 'react'
 import { Button } from '../components/ui/Button'
 
+const MIN_POSITION = 100
+const POSITION_RANGE_SIZE = 900
+const MAX_POSITION = 1000
+const POSITIONS_PER_WEEK = 120
+const MIN_PROGRESS = 5
+const MAX_PROGRESS = 95
+const INVITE_CODE_LENGTH = 6
+const INVITE_CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+
+function generateInviteCode() {
+  const characters = Array.from({ length: INVITE_CODE_LENGTH }, () => {
+    const randomIndex = Math.floor(Math.random() * INVITE_CHARACTERS.length)
+    return INVITE_CHARACTERS[randomIndex]
+  })
+  return `ORY-${characters.join('')}`
+}
+
+function calculateWaitlistProgress(position: number) {
+  const normalizedProgress = Math.round(((MAX_POSITION - position) / MAX_POSITION) * 100)
+  return Math.max(MIN_PROGRESS, Math.min(MAX_PROGRESS, normalizedProgress))
+}
+
 export function NewAccount() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [waitlistDetails, setWaitlistDetails] = useState<{
+    fullName: string
+    email: string
+    position: number
+    etaWeeks: number
+    progress: number
+    inviteCode: string
+  } | null>(null)
 
   return (
     <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-28">
@@ -18,6 +48,24 @@ export function NewAccount() {
               className="space-y-5"
               onSubmit={(event) => {
                 event.preventDefault()
+                const formData = new FormData(event.currentTarget)
+                const fullName = String(formData.get('fullName') ?? '').trim()
+                const email = String(formData.get('email') ?? '').trim()
+                if (!fullName || !email) return
+
+                const position = Math.floor(Math.random() * POSITION_RANGE_SIZE) + MIN_POSITION
+                const etaWeeks = Math.max(1, Math.ceil(position / POSITIONS_PER_WEEK))
+                const progress = calculateWaitlistProgress(position)
+                const inviteCode = generateInviteCode()
+
+                setWaitlistDetails({
+                  fullName,
+                  email,
+                  position,
+                  etaWeeks,
+                  progress,
+                  inviteCode,
+                })
                 setIsSubmitted(true)
               }}
             >
@@ -68,17 +116,55 @@ export function NewAccount() {
             </form>
           </>
         ) : (
-          <div className="space-y-5 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-white">New Account</h1>
-            <p className="text-lg text-white">
-              Thank you for joining our waitlist.
-            </p>
+          <div className="space-y-6">
+            <h1 className="text-3xl md:text-4xl font-bold text-white">Welcome to the Waitlist</h1>
             <p className="text-on-surface-variant">
-              You are now in the queue. We will email you as the waitlist progresses.
+              Thanks {waitlistDetails?.fullName || 'there'} — your signup is confirmed.
             </p>
-            <p className="text-on-surface-variant">
-              We are very thankful for your presence.
-            </p>
+
+            <div className="rounded-2xl border border-white/10 bg-base-950 p-6 space-y-5">
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-white font-semibold">Queue Position</p>
+                <p className="text-primary font-bold text-xl">#{waitlistDetails?.position}</p>
+              </div>
+
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-sm text-on-surface-variant">
+                  <span>Waitlist progress</span>
+                  <span>{waitlistDetails?.progress}%</span>
+                </div>
+                <div className="h-2 rounded-full bg-white/10 overflow-hidden">
+                  <div
+                    className="h-full bg-primary transition-all duration-700"
+                    style={{ width: `${waitlistDetails?.progress ?? 0}%` }}
+                  />
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 text-sm">
+                <div className="rounded-xl border border-white/10 bg-base-900 p-4">
+                  <p className="text-on-surface-variant mb-1">Estimated Invite</p>
+                  <p className="text-white font-semibold">
+                    ~{waitlistDetails?.etaWeeks} {waitlistDetails?.etaWeeks === 1 ? 'week' : 'weeks'}
+                  </p>
+                </div>
+                <div className="rounded-xl border border-white/10 bg-base-900 p-4">
+                  <p className="text-on-surface-variant mb-1">Invite Code</p>
+                  <p className="text-white font-semibold">{waitlistDetails?.inviteCode}</p>
+                </div>
+              </div>
+            </div>
+
+            <Button
+              variant="outline"
+              className="w-full"
+              onClick={() => {
+                setIsSubmitted(false)
+                setWaitlistDetails(null)
+              }}
+            >
+              Sign up with another email
+            </Button>
           </div>
         )}
       </div>
