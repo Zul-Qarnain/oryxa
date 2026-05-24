@@ -23,7 +23,12 @@ const NewAccountRoute = createRoute({
   component: NewAccount,
 })
 
-RootRoute.addChildren([IndexRoute, NewAccountRoute])
+const NewAccountsRoute = createRoute({
+  getParentRoute: () => RootRoute,
+  path: '/new-accounts',
+  component: NewAccount,
+})
+
 const TermsRoute = createRoute({
   getParentRoute: () => RootRoute,
   path: '/terms',
@@ -36,7 +41,7 @@ const PrivacyRoute = createRoute({
   component: PrivacyPolicy,
 })
 
-RootRoute.addChildren([IndexRoute, TermsRoute, PrivacyRoute])
+RootRoute.addChildren([IndexRoute, NewAccountRoute, NewAccountsRoute, TermsRoute, PrivacyRoute])
 
 const router = createRouter({
   routeTree: RootRoute,
