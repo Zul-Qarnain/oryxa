@@ -34,8 +34,8 @@ export function NewAccount() {
                 const position = Math.floor(Math.random() * 900) + 100
                 const etaWeeks = Math.max(1, Math.ceil(position / 120))
                 const progress = Math.max(5, Math.min(95, 100 - Math.round((position / 1000) * 100)))
-                const inviteSeed = Math.random().toString(36).slice(2).toUpperCase()
-                const inviteCode = `ORY-${inviteSeed.padEnd(6, 'X').slice(0, 6)}`
+                const inviteCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+                const inviteCode = `ORY-${Array.from({ length: 6 }, () => inviteCharacters[Math.floor(Math.random() * inviteCharacters.length)]).join('')}`
 
                 setWaitlistDetails({
                   fullName,
