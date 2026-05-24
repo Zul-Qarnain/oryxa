@@ -7,10 +7,11 @@ const MAX_POSITION = 1000
 const POSITIONS_PER_WEEK = 120
 const MIN_PROGRESS = 5
 const MAX_PROGRESS = 95
+const INVITE_CODE_LENGTH = 6
 const INVITE_CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 
 function generateInviteCode() {
-  return `ORY-${Array.from({ length: 6 }, () => INVITE_CHARACTERS[Math.floor(Math.random() * INVITE_CHARACTERS.length)]).join('')}`
+  return `ORY-${Array.from({ length: INVITE_CODE_LENGTH }, () => INVITE_CHARACTERS[Math.floor(Math.random() * INVITE_CHARACTERS.length)]).join('')}`
 }
 
 export function NewAccount() {
@@ -45,7 +46,7 @@ export function NewAccount() {
 
                 const position = Math.floor(Math.random() * POSITION_RANGE) + MIN_POSITION
                 const etaWeeks = Math.max(1, Math.ceil(position / POSITIONS_PER_WEEK))
-                const progress = Math.max(MIN_PROGRESS, Math.min(MAX_PROGRESS, 100 - Math.round((position / MAX_POSITION) * 100)))
+                const progress = Math.max(MIN_PROGRESS, Math.min(MAX_PROGRESS, Math.round(((MAX_POSITION - position) / MAX_POSITION) * 100)))
                 const inviteCode = generateInviteCode()
 
                 setWaitlistDetails({
