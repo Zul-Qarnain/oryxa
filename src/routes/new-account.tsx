@@ -29,10 +29,13 @@ export function NewAccount() {
                 const formData = new FormData(event.currentTarget)
                 const fullName = String(formData.get('fullName') ?? '').trim()
                 const email = String(formData.get('email') ?? '').trim()
+                if (!fullName || !email) return
+
                 const position = Math.floor(Math.random() * 900) + 100
                 const etaWeeks = Math.max(1, Math.ceil(position / 120))
                 const progress = Math.max(5, Math.min(95, 100 - Math.round((position / 1000) * 100)))
-                const inviteCode = `ORY-${Math.random().toString(36).slice(2, 8).toUpperCase()}`
+                const inviteSeed = Math.random().toString(36).slice(2).toUpperCase()
+                const inviteCode = `ORY-${inviteSeed.padEnd(6, 'X').slice(0, 6)}`
 
                 setWaitlistDetails({
                   fullName,
@@ -120,7 +123,9 @@ export function NewAccount() {
               <div className="grid sm:grid-cols-2 gap-4 text-sm">
                 <div className="rounded-xl border border-white/10 bg-base-900 p-4">
                   <p className="text-on-surface-variant mb-1">Estimated Invite</p>
-                  <p className="text-white font-semibold">~{waitlistDetails?.etaWeeks} week(s)</p>
+                  <p className="text-white font-semibold">
+                    ~{waitlistDetails?.etaWeeks} {waitlistDetails?.etaWeeks === 1 ? 'week' : 'weeks'}
+                  </p>
                 </div>
                 <div className="rounded-xl border border-white/10 bg-base-900 p-4">
                   <p className="text-on-surface-variant mb-1">Invite Code</p>
