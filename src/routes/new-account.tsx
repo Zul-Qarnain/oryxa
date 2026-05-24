@@ -1,6 +1,18 @@
 import React, { useState } from 'react'
 import { Button } from '../components/ui/Button'
 
+const MIN_POSITION = 100
+const POSITION_RANGE = 900
+const MAX_POSITION = 1000
+const POSITIONS_PER_WEEK = 120
+const MIN_PROGRESS = 5
+const MAX_PROGRESS = 95
+const INVITE_CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+
+function generateInviteCode() {
+  return `ORY-${Array.from({ length: 6 }, () => INVITE_CHARACTERS[Math.floor(Math.random() * INVITE_CHARACTERS.length)]).join('')}`
+}
+
 export function NewAccount() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [waitlistDetails, setWaitlistDetails] = useState<{
@@ -31,11 +43,10 @@ export function NewAccount() {
                 const email = String(formData.get('email') ?? '').trim()
                 if (!fullName || !email) return
 
-                const position = Math.floor(Math.random() * 900) + 100
-                const etaWeeks = Math.max(1, Math.ceil(position / 120))
-                const progress = Math.max(5, Math.min(95, 100 - Math.round((position / 1000) * 100)))
-                const inviteCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-                const inviteCode = `ORY-${Array.from({ length: 6 }, () => inviteCharacters[Math.floor(Math.random() * inviteCharacters.length)]).join('')}`
+                const position = Math.floor(Math.random() * POSITION_RANGE) + MIN_POSITION
+                const etaWeeks = Math.max(1, Math.ceil(position / POSITIONS_PER_WEEK))
+                const progress = Math.max(MIN_PROGRESS, Math.min(MAX_PROGRESS, 100 - Math.round((position / MAX_POSITION) * 100)))
+                const inviteCode = generateInviteCode()
 
                 setWaitlistDetails({
                   fullName,
