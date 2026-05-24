@@ -155,10 +155,6 @@ export function NewAccount() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-dashed border-white/15 p-4 text-sm text-on-surface-variant">
-              This is a demo waitlist UI only. No backend or real account was created for {waitlistDetails?.email}.
-            </div>
-
             <Button
               variant="outline"
               className="w-full"
