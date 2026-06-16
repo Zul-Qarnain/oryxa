@@ -2,11 +2,11 @@ import React from 'react'
 import { RouterProvider, createRouter, createRootRoute, createRoute, createBrowserHistory } from '@tanstack/react-router'
 import { MainLayout } from '../layouts/MainLayout'
 import { Home } from './index'
-import { NewAccount } from './new-account'
 import { TermsConditions } from './TermsConditions'
 import { PrivacyPolicy } from './PrivacyPolicy'
+import { RefundPolicy } from './RefundPolicy'
+import { Contact } from './Contact'
 
-// Create route tree using TanStack Router helpers
 const RootRoute = createRootRoute({
   component: MainLayout,
 })
@@ -15,18 +15,6 @@ const IndexRoute = createRoute({
   getParentRoute: () => RootRoute,
   path: '/',
   component: Home,
-})
-
-const NewAccountRoute = createRoute({
-  getParentRoute: () => RootRoute,
-  path: '/new-account',
-  component: NewAccount,
-})
-
-const NewAccountsRoute = createRoute({
-  getParentRoute: () => RootRoute,
-  path: '/new-accounts',
-  component: NewAccount,
 })
 
 const TermsRoute = createRoute({
@@ -41,7 +29,19 @@ const PrivacyRoute = createRoute({
   component: PrivacyPolicy,
 })
 
-RootRoute.addChildren([IndexRoute, NewAccountRoute, NewAccountsRoute, TermsRoute, PrivacyRoute])
+const RefundRoute = createRoute({
+  getParentRoute: () => RootRoute,
+  path: '/refund',
+  component: RefundPolicy,
+})
+
+const ContactRoute = createRoute({
+  getParentRoute: () => RootRoute,
+  path: '/contact',
+  component: Contact,
+})
+
+RootRoute.addChildren([IndexRoute, TermsRoute, PrivacyRoute, RefundRoute, ContactRoute])
 
 const router = createRouter({
   routeTree: RootRoute,

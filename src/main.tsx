@@ -4,8 +4,6 @@ import { Root } from './routes/root'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import './styles/index.css'
 
-console.log('Oryxa: Initializing Application...')
-
 try {
   const rootEl = document.getElementById('root')
   if (!rootEl) {
@@ -20,7 +18,6 @@ try {
       </ErrorBoundary>
     </React.StrictMode>
   )
-  console.log('Oryxa: Application Rendered Successfully')
 } catch (error) {
-  console.error('Oryxa: Startup Error:', error)
+  console.error('RR Computers: Startup Error:', error)
 }
